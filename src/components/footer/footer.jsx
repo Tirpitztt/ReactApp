@@ -1,6 +1,8 @@
+import c from './footer.module.css';
+
 const Footer = ()=>{
     return (
-        <footer className='footer'>
+        <footer className={c.footer}>
             <div>
                 <p>FOOTER rrr</p>
             </div>

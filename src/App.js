@@ -1,10 +1,10 @@
 
 import './App.css';
-import './components/header'
-import Header from "./components/header";
-import NavBar from "./components/navbar";
-import Profile from "./components/profile";
-import Footer from "./components/footer";
+import './components/header/header'
+import Header from "./components/header/header";
+import NavBar from "./components/navbar/navbar";
+import Profile from "./components/profile/profile";
+import Footer from "./components/footer/footer";
 
 
 const App = ()=> {

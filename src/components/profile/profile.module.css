@@ -1,0 +1,26 @@
+.content{
+    grid-area: c;
+    background-color: coral;
+    margin: 5px;
+}
+
+.heat img{
+    width: 100%;
+}
+.user_wrap{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.user_ava{
+    width:10%;
+    padding: 5px;
+    margin: 10px;
+}
+.user_ava img{
+    width:100%;
+}
+.user_info{
+    width:89%;
+    padding: 5px;
+    margin: 10px;
+}
