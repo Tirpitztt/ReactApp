@@ -2,7 +2,7 @@ const Footer = ()=>{
     return (
         <footer>
             <div>
-                <p>FOOTER</p>
+                <p>FOOTER rrr</p>
             </div>
         </footer>
     )
