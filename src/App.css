@@ -6,5 +6,9 @@
   width:100vw;
 }
 
+.content{
+  grid-area: c;
 
+  margin: 5px;
+}
 

@@ -1,0 +1,25 @@
+.block{
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px;
+    border: 1px solid black;
+}
+.title_block{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.picture{
+    width: 20%;
+}
+.picture img{
+    width:100%;
+}
+.info{
+    width: 79%;
+    margin-left: 10px;
+}
+.news_block{
+    border: 1px solid darkgray;
+    border-radius: 5px;
+
+}

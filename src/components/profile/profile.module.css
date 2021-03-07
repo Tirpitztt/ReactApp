@@ -1,8 +1,4 @@
-.content{
-    grid-area: c;
-    
-    margin: 5px;
-}
+
 .heat{
     height: 180px;
     overflow: hidden;
