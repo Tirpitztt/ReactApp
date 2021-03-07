@@ -18,7 +18,9 @@
 }
 .coment{
     width:60%;
-   
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: .8rem;
+   padding:5px;
     border-radius: 5px;
     border:1px solid grey;
     margin-left: 20px;

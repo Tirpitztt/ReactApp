@@ -10,8 +10,8 @@ const MyPost = ()=>{
                 <h3>New post</h3>
                 <User_post />
                 </div>
-                <Post />
-                <Post />
+                <Post message="this is my first post in this application"/>
+                <Post message="ebatkolotit kak interesno, nut not understand it all"/>
             </div>
 
 
