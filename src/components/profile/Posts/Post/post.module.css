@@ -1,0 +1,45 @@
+.postwr{
+    width:90%;
+    margin:1.5rem auto;
+}
+
+.post{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.ava{
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.ava img{
+    width:100%;
+}
+.coment{
+    width:60%;
+   
+    border-radius: 5px;
+    border:1px solid grey;
+    margin-left: 20px;
+}
+.butwrap{
+    display:flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    width:70%;
+}
+.butwrap div:nth-of-type(1)>span{
+    color:green;
+    margin-right: .5rem;
+}
+.butwrap div:nth-of-type(2)>span{
+    color: red;
+    margin-right: .5rem;
+}
+.like{
+    width:5rem;
+    height: 1.5rem;
+   
+    margin:1rem .5rem;
+}

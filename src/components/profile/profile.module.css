@@ -1,9 +1,12 @@
 .content{
     grid-area: c;
-    background-color: coral;
+    
     margin: 5px;
 }
-
+.heat{
+    height: 180px;
+    overflow: hidden;
+}
 .heat img{
     width: 100%;
 }

@@ -11,6 +11,7 @@ const MyPost = ()=>{
                 <User_post />
                 </div>
                 <Post />
+                <Post />
             </div>
 
 
