@@ -10,8 +10,8 @@ const Post = (props)=>{
              </div>
                 
                 <div className={c.butwrap}>
-                    <div className={c.like}><span className='icon-like'></span>Like</div>
-                    <div className={c.like}><span className='icon-like'></span>No like</div>
+                    <div className={c.like}><span className='icon-like'></span>Like {props.like}</div>
+                    <div className={c.like}><span className='icon-like'></span>No like </div>
                 </div> 
             </div>
         
