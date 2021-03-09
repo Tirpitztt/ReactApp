@@ -2,7 +2,7 @@ import c from './myPost.module.css';
 import Post from './Post/post'
 import User_post from './Userpost/User_post';
 
-const MyPost = ()=>{
+const MyPost = (props)=>{
     return (
 
             <div className={c.posts_wrap}>
@@ -10,7 +10,7 @@ const MyPost = ()=>{
                 <h3>New post</h3>
                 <User_post />
                 </div>
-                <Post />
+                <Post posts={props.posts}/>
 
             </div>
 

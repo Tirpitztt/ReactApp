@@ -3,6 +3,7 @@ import c from './post.module.css';
 const PostElement = (props)=>{
     return(
         <div className={c.postwr}>
+
             <div className={c.post}>
                 <div className={c.ava}><img src={props.avaurl} alt=""/></div>
                 <div className={c.coment}>{props.message}</div>
@@ -24,8 +25,12 @@ const Post = (props)=>{
         {message:"message from abrakadabra",like:"20",avaurl:"https://st3.depositphotos.com/11670786/17645/i/600/depositphotos_176452198-stock-photo-evil-crafty-kitty.jpg"}
     ]
 
-    let res = postData.map(post => <PostElement message={post.message} like={post.like}  avaurl={post.avaurl} />);
 
-    return res;
+
+
+    let res = props.posts.map(post => <PostElement message={post.title} like={post.id}  avaurl={post.url} key={post.id+Math.random()}/>);
+   return res;
+
+
 }
 export default Post;
