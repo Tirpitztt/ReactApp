@@ -1,0 +1,25 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    min-height: 90vh;
+}
+.dialogs_items{
+    padding: 15px;
+    background-color: bisque;
+    border-right: 1px solid darkgrey;
+}
+.dialog{
+    margin-bottom: 1.2rem;
+}
+a{
+    text-decoration: none;
+}
+.messages{
+    padding: 15px;
+}
+.mess{
+    margin-bottom: 1.2rem;
+}
+.active{
+    color: gold;
+}

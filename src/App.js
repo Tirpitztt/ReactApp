@@ -20,7 +20,7 @@ const App = ()=> {
         <NavBar />
         <div className='content'>
             <Route path='/profile' component={Profile}/>
-            <Route path='/dialog' component={Dialogs}/>
+            <Route path='/dialogs' component={Dialogs}/>
             <Route path='/news' component={News}/>
             <Route path='/music' component={Music}/>
         </div>

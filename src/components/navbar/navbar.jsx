@@ -1,4 +1,5 @@
 import c from './navbar.module.css';
+import {NavLink} from "react-router-dom";
 
 const NavBar = ()=>{
     let profile = '/profile';
@@ -8,11 +9,13 @@ const NavBar = ()=>{
     let settings = '/settings';
     return (
         <nav className={c.nav}>
-            <div><a href={profile}>Profile</a></div>
-            <div><a href={dialogs}>Messages</a></div>
-            <div><a href={news}>News</a></div>
-            <div><a href={music}>Music</a></div>
-            <div><a href={settings}>Settings</a></div>
+            <div className={c.item}>
+                <NavLink to={profile} activeClassName={c.activeLink}>Profile</NavLink></div>
+            <div className={c.item}>
+                <NavLink to={dialogs} activeClassName={c.activeLink}>Messages</NavLink></div>
+            <div className={c.item}><NavLink to={news} activeClassName={c.activeLink}>News</NavLink></div>
+            <div  className={c.item}><NavLink to={music} activeClassName={c.activeLink}>Music</NavLink></div>
+            <div className={c.item}><NavLink to={settings} activeClassName={c.activeLink}>Settings</NavLink></div>
         </nav>
     )
 }
