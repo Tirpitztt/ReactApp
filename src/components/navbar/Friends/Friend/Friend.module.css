@@ -1,0 +1,16 @@
+.wrap{
+    display: inline-block;
+    width: 60px;
+}
+.avawrap{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.avawrap>img{
+    width: 100%;
+}
+.nik{
+    text-align: center;
+}

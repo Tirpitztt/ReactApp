@@ -3,7 +3,7 @@ import c from './post.module.css';
 const PostElement = (props)=>{
     return(
         <div className={c.postwr}>
-
+            <div>{props.name}</div>
             <div className={c.post}>
                 <div className={c.ava}><img src={props.avaurl} alt=""/></div>
                 <div className={c.coment}>{props.message}</div>
@@ -19,16 +19,16 @@ const PostElement = (props)=>{
 
 const Post = (props)=>{
 
-    let postData = [
-        {message:"message from hell mazafaka",like:"5",avaurl:"https://i.pinimg.com/564x/3c/e6/25/3ce625ab130460755d1475fb033652f2.jpg"},
-        {message:"message from cat",like:"10",avaurl:"https://4.bp.blogspot.com/-JZIEQ4RWN-8/Wk0DCcwFlWI/AAAAAAAAJjg/HzR7GQdoEBknWhE-k09LJrCwhhqbrWNPgCLcBGAs/s1600/Screen%2BShot%2B2018-01-03%2Bat%2B18.20.15.png"},
-        {message:"message from abrakadabra",like:"20",avaurl:"https://st3.depositphotos.com/11670786/17645/i/600/depositphotos_176452198-stock-photo-evil-crafty-kitty.jpg"}
-    ]
+ let res = props.state.posts.map(post => <PostElement name={props.state.users[post.user-1].name} message={post.post} like={post.likes}
+                                                         avaurl={props.state.users[post.user-1].avaurl} key={post.id+Math.random()}/>);
+    function getUserAva(id){
+        props.state.users.forEach(function (item){
+            if(item.id===id){
+                return item.avaurl;
+            }
+        })
+    }
 
-
-
-
-    let res = props.posts.map(post => <PostElement message={post.title} like={post.id}  avaurl={post.url} key={post.id+Math.random()}/>);
    return res;
 
 

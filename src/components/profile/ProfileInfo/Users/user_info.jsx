@@ -2,9 +2,9 @@
 const User_info = (props)=>{
     return (
         <div>
-            <p>{props.name}</p>
-            <p>{props.adress}</p>
-            <p>{props.status}</p>
+            <p>{props.state.name}</p>
+            <p>{props.state.adress}</p>
+
         </div>
     )
 }

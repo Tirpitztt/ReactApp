@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
     min-height: 90vh;
+    position: relative;
 }
 .dialogs_items{
     padding: 15px;

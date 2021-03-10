@@ -3,3 +3,12 @@
     margin-left: 2rem;
     background: wheat;
 }
+.sbtn{
+    background-color: blueviolet;
+    color: bisque;
+    border-radius: 30%;
+    width: 120px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+}

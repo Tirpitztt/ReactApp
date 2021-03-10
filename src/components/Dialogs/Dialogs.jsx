@@ -3,23 +3,17 @@ import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 
 
+import TextAr from "./TextAr/TextAr";
+
+
 
 
 const Dialogs = (props)=>{
 
-    let dialogData = [
-        {id:"1",name:"Sergey"},{id:"2",name:"Volga"},{id:"3",name:"Alina"},{id:"4",name:"Volodya"},{id:"5",name:"Mudak"}
-    ];
-    let messageData = [
-        {id:"1",message:"i like you"},
-        {id:"2",message:"i like you too"},
-        {id:"3",message:"hi my family"},
-        {id:"4",message:"all fine"},
-        {id:"5",message:"hi"},
 
-    ]
-    let resDialog = dialogData.map(d => <Dialog name={d.name} id={d.id} key={d.id+Math.random()}/>);
-    let resMessage = messageData.map(m => <Message message={m.message}  key={m.id+Math.random()}/>)
+    let resDialog = props.state.dialogs.map(d => <Dialog name={props.state.users[d.userId-1].name} id={d.userId} key={d.id+Math.random()}/>);
+    let resMessage = props.state.messages.map(m => <Message message={m.text}  key={m.id+Math.random()}/>)
+
     return (
         <div className={c.dialogs}>
             <div className={c.dialogs_items}>
@@ -27,6 +21,7 @@ const Dialogs = (props)=>{
             </div>
             <div className={c.messages}>
                 {resMessage}
+                <TextAr />
             </div>
 
         </div>

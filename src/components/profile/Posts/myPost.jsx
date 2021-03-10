@@ -10,7 +10,7 @@ const MyPost = (props)=>{
                 <h3>New post</h3>
                 <User_post />
                 </div>
-                <Post posts={props.posts}/>
+                <Post state={props.state}/>
 
             </div>
 
