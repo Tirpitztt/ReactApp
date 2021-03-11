@@ -246,4 +246,15 @@ let state = {
     }
 }
 
+export let addPost = (post)=> {
+    let postObj = {
+        id:"6",
+        user:1,
+        post:post,
+        likes:'0'
+    }
+    state.profilePage.posts.push(postObj);
+}
+
+
 export default state;

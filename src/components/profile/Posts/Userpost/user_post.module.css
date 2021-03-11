@@ -4,6 +4,7 @@
     background: wheat;
 }
 .sbtn{
+    margin-top: 10px;
     background-color: blueviolet;
     color: bisque;
     border-radius: 30%;
@@ -11,4 +12,7 @@
     height: 25px;
     text-align: center;
     cursor: pointer;
+}
+.sbtn:active{
+    background-color: darkviolet;
 }
