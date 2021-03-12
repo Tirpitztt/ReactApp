@@ -1,3 +1,4 @@
+import {rerenderTree} from "../render";
 
 
 let state = {
@@ -65,7 +66,8 @@ let state = {
             user:5,
             post:"I am dolboeb!",
             likes:'100'
-        }]
+        }],
+        checkedText:'tirpitz'
     },
     dialogsPage:{
         users:[{
@@ -254,7 +256,12 @@ export let addPost = (post)=> {
         likes:'0'
     }
     state.profilePage.posts.push(postObj);
+    rerenderTree(state);
 }
-
+export let checkText = (text)=>{
+    let newText = (text=='')?'NINJA-JS':text;
+    state.profilePage.checkedText = newText;
+    rerenderTree(state);
+}
 
 export default state;

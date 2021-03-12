@@ -8,7 +8,11 @@ const MyPost = (props)=>{
             <div className={c.posts_wrap}>
                 <div className={c.new_post}>
                 <h3>New post</h3>
-                <User_post addPost={props.addPost}/>
+                <User_post
+                    state={props.state}
+                    addPost={props.addPost}
+                    checkText={props.checkText}
+                            />
                 </div>
                 <Post state={props.state}/>
 
