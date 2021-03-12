@@ -171,21 +171,25 @@ let store = {
     subscribe(observer){
         this._subscriber = observer;
     },
-    addPost(){
-        let postObj = {
-            id:"6",
-            user:1,
-            post:this._state.profilePage.checkedText,
-            likes:'0'
+    dispatch(action){
+        switch (action.type){
+           case 'ADD_POST':
+               let postObj = {
+                   id:"6",
+                   user:1,
+                   post:this._state.profilePage.checkedText,
+                   likes:'0'
+               }
+               this._state.profilePage.posts.push(postObj);
+               this._state.profilePage.checkedText = '';
+               this._subscriber(this._state);
+               break;
+               case 'CHECK_TEXT':
+                let newText = (action.text.length>10)?'NINJA-JS':action.text;
+                this._state.profilePage.checkedText = newText;
+                this._subscriber(this._state);
+                break;
         }
-        this._state.profilePage.posts.push(postObj);
-        this._state.profilePage.checkedText = '';
-        this._subscriber(this._state);
-    },
-    checkText(text){
-        let newText = (text.length>10)?'NINJA-JS':text;
-        this._state.profilePage.checkedText = newText;
-        this._subscriber(this._state);
     }
 
 }

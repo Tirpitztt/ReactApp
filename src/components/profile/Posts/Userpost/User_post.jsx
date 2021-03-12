@@ -7,12 +7,11 @@ const User_post = (props)=>{
     let textEl = React.createRef();
 
     let addPost = ()=>{
-         props.state.addPost();
-
-    }
+         props.state.dispatch({type:'ADD_POST'});
+}
     let textChange = ()=>{
         let text = textEl.current.value;
-        props.state.checkText(text);
+        props.state.dispatch({type:'CHECK_TEXT',text:text});
  }
 
 
