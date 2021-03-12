@@ -3,13 +3,14 @@ import Friend from "./Friend/Frend";
 
 const Friends = (props)=>{
 
-    let friendsarr = getFriends(props.state.user.id);
+    let localState = props.state.getState();
+    let friendsarr = getFriends(localState.user.id);
 
     let res = friendsarr.map((f)=> <Friend name={f.name} ava={f.avaurl}/>);
 
     function getFriends(id){
         let result=[];
-        props.state.users.forEach((item)=>{
+        localState.users.forEach((item)=>{
             if(item.friends.includes(id,0)){
                 result.push(item);
             }

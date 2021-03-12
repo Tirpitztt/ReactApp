@@ -10,9 +10,9 @@ import TextAr from "./TextAr/TextAr";
 
 const Dialogs = (props)=>{
 
-
-    let resDialog = props.state.dialogs.map(d => <Dialog name={props.state.users[d.userId-1].name} id={d.userId} key={d.id+Math.random()}/>);
-    let resMessage = props.state.messages.map(m => <Message message={m.text}  key={m.id+Math.random()}/>)
+    let state = props.state.getState();
+    let resDialog = state.dialogsPage.dialogs.map(d => <Dialog name={state.users[d.userId-1].name} id={d.userId} key={d.id+Math.random()}/>);
+    let resMessage = state.dialogsPage.messages.map(m => <Message message={m.text}  key={m.id+Math.random()}/>)
 
     return (
         <div className={c.dialogs}>

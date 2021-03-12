@@ -9,10 +9,7 @@ const MyPost = (props)=>{
                 <div className={c.new_post}>
                 <h3>New post</h3>
                 <User_post
-                    state={props.state}
-                    addPost={props.addPost}
-                    checkText={props.checkText}
-                            />
+                    state={props.state}/>
                 </div>
                 <Post state={props.state}/>
 

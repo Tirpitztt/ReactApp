@@ -18,11 +18,12 @@ const PostElement = (props)=>{
 }
 
 const Post = (props)=>{
+    let stateLoc = props.state.getState();
 
- let res = props.state.posts.map(post => <PostElement name={props.state.users[post.user-1].name} message={post.post} like={post.likes}
-                                                         avaurl={props.state.users[post.user-1].avaurl} key={post.id+Math.random()}/>);
+    let res = stateLoc.profilePage.posts.map(post => <PostElement name={stateLoc.users[post.user-1].name} message={post.post} like={post.likes}
+                                                         avaurl={stateLoc.users[post.user-1].avaurl} key={post.id+Math.random()}/>);
     function getUserAva(id){
-        props.state.users.forEach(function (item){
+        stateLoc.users.forEach(function (item){
             if(item.id===id){
                 return item.avaurl;
             }
