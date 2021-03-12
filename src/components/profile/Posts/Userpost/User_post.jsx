@@ -6,9 +6,8 @@ const User_post = (props)=>{
     let textEl = React.createRef();
 
     let addPost = ()=>{
-        let text = textEl.current.value;
-        props.addPost(text);
-        textEl.current.value = '';
+         props.addPost();
+
     }
     let textChange = ()=>{
         let text = textEl.current.value;

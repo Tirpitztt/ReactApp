@@ -1,4 +1,4 @@
-import {rerenderTree} from "../render";
+let rerenderTree = ()=>{}
 
 
 let state = {
@@ -248,20 +248,24 @@ let state = {
     }
 }
 
-export let addPost = (post)=> {
+export let addPost = ()=> {
     let postObj = {
         id:"6",
         user:1,
-        post:post,
+        post:state.profilePage.checkedText,
         likes:'0'
     }
     state.profilePage.posts.push(postObj);
+    state.profilePage.checkedText = '';
     rerenderTree(state);
 }
 export let checkText = (text)=>{
-    let newText = (text=='')?'NINJA-JS':text;
+    let newText = (text.length>10)?'NINJA-JS':text;
     state.profilePage.checkedText = newText;
     rerenderTree(state);
+}
+export const subscribe = (observer)=>{
+    rerenderTree = observer;
 }
 
 export default state;
