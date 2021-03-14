@@ -1,4 +1,6 @@
-
+const ADD_POST = 'ADD_POST';
+const CHECK_TEXT = 'CHECK_TEXT';
+const ADD_MESSAGE = 'ADD_MESSAGE';
 let store = {
     _subscriber(){},
     _state: {
@@ -111,7 +113,8 @@ let store = {
                 userId: '5',
                 dialogId: '4',
                 text: 'hi, im mudak?'
-            }]
+            }],
+            checkedText:''
         },
         newsPage: {
             news: [{
@@ -173,7 +176,7 @@ let store = {
     },
     dispatch(action){
         switch (action.type){
-           case 'ADD_POST':
+           case ADD_POST:
                let postObj = {
                    id:"6",
                    user:1,
@@ -184,16 +187,30 @@ let store = {
                this._state.profilePage.checkedText = '';
                this._subscriber(this._state);
                break;
-               case 'CHECK_TEXT':
+               case CHECK_TEXT:
                 let newText = (action.text.length>10)?'NINJA-JS':action.text;
                 this._state.profilePage.checkedText = newText;
                 this._subscriber(this._state);
                 break;
+               case ADD_MESSAGE:
+                   let newMess = {
+                       id:'7',
+                       userId:'2',
+                       dialogId:'1',
+                       text:this._state.dialogsPage.checkedText
+
+                   }
+                   this._state.dialogsPage.messages.push(newMess);
+                   this._subscriber(this._state);
+                   break;
         }
     }
 
 }
 
+export const addPostActionCreator = ()=> ({type:ADD_POST});
+export const addMessageCreator = ()=> ({type:ADD_MESSAGE});
+export const checkTextActionCreator = (text)=> ({type:CHECK_TEXT,text:text});
 
 
 

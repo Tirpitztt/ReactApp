@@ -1,5 +1,6 @@
 import c from './user_post.module.css';
 import * as React from "react";
+import {checkTextActionCreator,addPostActionCreator} from './../../../../Redux/state';
 
 const User_post = (props)=>{
 
@@ -7,11 +8,14 @@ const User_post = (props)=>{
     let textEl = React.createRef();
 
     let addPost = ()=>{
-         props.state.dispatch({type:'ADD_POST'});
+        let action = addPostActionCreator();
+         props.state.dispatch(action);
 }
     let textChange = ()=>{
         let text = textEl.current.value;
-        props.state.dispatch({type:'CHECK_TEXT',text:text});
+        let action = checkTextActionCreator(text);
+
+        props.state.dispatch(action);
  }
 
 
