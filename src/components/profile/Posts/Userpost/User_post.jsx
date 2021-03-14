@@ -13,7 +13,7 @@ const User_post = (props)=>{
 }
     let textChange = ()=>{
         let text = textEl.current.value;
-        let action = checkTextActionCreator(text);
+        let action = checkTextActionCreator(text,'CHEK_POST');
 
         props.state.dispatch(action);
  }

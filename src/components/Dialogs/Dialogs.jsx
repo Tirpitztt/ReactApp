@@ -21,7 +21,7 @@ const Dialogs = (props)=>{
             </div>
             <div className={c.messages}>
                 {resMessage}
-                <TextAr />
+                <TextAr state={props.state}/>
             </div>
 
         </div>
