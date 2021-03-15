@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import store from './Redux/state'
+import store from './Redux/redux-store'
 import ReactDOM from "react-dom";
 import App from "./App";
 
@@ -15,7 +15,9 @@ let rerenderTree = ()=>{
 }
 let stateLoc = store.getState();
 rerenderTree(stateLoc);
-store.subscribe(rerenderTree);
+store.subscribe(()=>{
+    rerenderTree(stateLoc);
+});
 
 
 

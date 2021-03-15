@@ -1,7 +1,7 @@
 import c from './TextAr.module.css'
 import * as React from "react";
-import { checkTextActionCreator} from "./../../../Redux/checkText-reduce";
-import {addMessageCreator} from "../../../Redux/dialogs-reduce";
+
+import {checkTextActionCreator,addMessageCreator} from "../../../Redux/dialogs-reduce";
 
 const TextAr = (props)=>{
     let state = props.state.getState();
