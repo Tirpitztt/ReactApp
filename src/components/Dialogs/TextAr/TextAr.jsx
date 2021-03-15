@@ -4,19 +4,17 @@ import * as React from "react";
 import {checkTextActionCreator,addMessageCreator} from "../../../Redux/dialogs-reduce";
 
 const TextAr = (props)=>{
-    let state = props.state.getState();
-    let newMessageBody = state.dialogsPage.checkedText;
-    let addMess = ()=>{
-        props.state.dispatch(addMessageCreator());
+    let addMessage = ()=>{
+        props.addMess();
     }
     let checkText = (e)=>{
         let text = e.target.value;
-        props.state.dispatch(checkTextActionCreator(text,'CHECK_MESSAGE'));
+        props.checkT(text);
     }
     return(
         <div className={c.wrap}>
-            <div><textarea onChange={checkText} value={newMessageBody}></textarea></div>
-            <div><div className={c.sendwrap} onClick={addMess}><span className='icon-paperplane'></span></div></div>
+            <div><textarea onChange={checkText} value={props.nmb}></textarea></div>
+            <div><div className={c.sendwrap} onClick={addMessage}><span className='icon-paperplane'></span></div></div>
 
         </div>
     )

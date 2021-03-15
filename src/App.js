@@ -4,12 +4,12 @@ import './App.css';
 import './components/header/header'
 import Header from "./components/header/header";
 import NavBar from "./components/navbar/navbar";
-import Profile from "./components/profile/profile";
 import Footer from "./components/footer/footer";
-import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter,Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import ProfileContainer from "./components/profile/ProfileContainer";
 
 
 const App = (props)=> {
@@ -19,8 +19,8 @@ const App = (props)=> {
         <Header />
         <NavBar state={props.state}/>
         <div className='content'>
-            <Route path='/profile' render={()=> <Profile state={props.state}/>}/>
-            <Route path='/dialogs' render={()=> <Dialogs state={props.state} />}/>
+            <Route path='/profile' render={()=> <ProfileContainer state={props.state}/>}/>
+            <Route path='/dialogs' render={()=> <DialogsContainer state={props.state} />}/>
             <Route path='/news' component={News}/>
             <Route path='/music' component={Music}/>
         </div>
