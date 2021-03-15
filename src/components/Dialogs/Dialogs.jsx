@@ -9,7 +9,7 @@ const Dialogs = (props)=>{
             </div>
             <div className={c.messages}>
                 {props.messageArr}
-                <TextAr nmb={props.newMesBody} addMess={props.addMess} checkT={props.checkT} />
+                <TextAr nmb={props.newMessBody} addMess={props.addMess} checkT={props.checkT} />
             </div>
 
         </div>

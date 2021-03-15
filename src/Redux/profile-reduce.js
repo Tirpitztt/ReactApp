@@ -35,19 +35,20 @@ const profileReducer = (state = initialState,action)=>{
 
     switch (action.type){
         case ADD_POST :
-        let postObj = {
-            id:"6",
-            user:1,
-            post: state.checkedText,
-            likes:'0'
-        }
-            state.posts.push(postObj);
-            state.checkedText = '';
-            return state;
+
+            return {
+                ...state,
+                posts:[...state.posts,{id:'6',user:1,post:state.checkedText,likes:'0'}],
+                checkedText: ''
+            }
+
         case CHECK_TEXT:
             let newText = (action.text.length>10)?'NINJA-JS':action.text;
-            state.checkedText = newText;
-            return state;
+            return{
+                ...state,
+                checkedText: newText
+            }
+
         default : return state;
     }
 

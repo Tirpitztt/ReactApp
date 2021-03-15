@@ -50,19 +50,18 @@ let initialState = {
 const dialogReducer = (state = initialState,action)=>{
     switch (action.type){
         case  ADD_MESSAGE:
-            let newMess = {
-                id:'7',
-                userId:'2',
-                dialogId:'1',
-                text: state.checkedText
-
+             return {
+                ...state,
+                messages:[...state.messages,{id:'6',userId:'1',dialogId:'2',text:state.checkedText}]
             }
-            state.messages.push(newMess);
-            return state;
+
         case CHECK_TEXT:
             let newText = (action.text.length>20)?'SAMURAI-JS':action.text;
-            state.checkedText = newText;
-            return state;
+            return {
+                ...state,
+                checkedText: newText
+            }
+
         default : return state;
     }
 
