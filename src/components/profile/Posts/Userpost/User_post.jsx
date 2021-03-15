@@ -1,6 +1,7 @@
 import c from './user_post.module.css';
 import * as React from "react";
-import {checkTextActionCreator,addPostActionCreator} from './../../../../Redux/state';
+import {checkTextActionCreator} from './../../../../Redux/checkText-reduce';
+import {addPostActionCreator} from "../../../../Redux/profile-reduce";
 
 const User_post = (props)=>{
 
@@ -13,7 +14,7 @@ const User_post = (props)=>{
 }
     let textChange = ()=>{
         let text = textEl.current.value;
-        let action = checkTextActionCreator(text,'CHEK_POST');
+        let action = checkTextActionCreator(text,'CHECK_POST');
 
         props.state.dispatch(action);
  }

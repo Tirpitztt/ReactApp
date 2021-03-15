@@ -1,8 +1,8 @@
-const ADD_POST = 'ADD_POST';
-const CHECK_TEXT = 'CHECK_TEXT';
-const ADD_MESSAGE = 'ADD_MESSAGE';
-const CHECK_MESSAGE = 'CHECK_MESSAGE';
-const CHECK_POST = 'CHEK_POST';
+import checkTextReducer from "./checkText-reduce";
+import profileReducer from "./profile-reduce";
+import dialogReducer from "./dialogs-reduce";
+
+
 let store = {
     _subscriber(){},
     _state: {
@@ -177,48 +177,16 @@ let store = {
         this._subscriber = observer;
     },
     dispatch(action){
-        switch (action.type){
-           case ADD_POST:
-               let postObj = {
-                   id:"6",
-                   user:1,
-                   post:this._state.profilePage.checkedText,
-                   likes:'0'
-               }
-               this._state.profilePage.posts.push(postObj);
-               this._state.profilePage.checkedText = '';
-               this._subscriber(this._state);
-               break;
-               case CHECK_TEXT:
-                   if(action.entity===CHECK_POST){
-                       let newText = (action.text.length>10)?'NINJA-JS':action.text;
-                       this._state.profilePage.checkedText = newText;
-                   }else if(action.entity===CHECK_MESSAGE){
-                       let newText = (action.text.length>20)?'SAMURAI-JS':action.text;
-                       this._state.dialogsPage.checkedText = newText;
-                   }
 
-                this._subscriber(this._state);
-                break;
-               case ADD_MESSAGE:
-                   let newMess = {
-                       id:'7',
-                       userId:'2',
-                       dialogId:'1',
-                       text:this._state.dialogsPage.checkedText
-
-                   }
-                   this._state.dialogsPage.messages.push(newMess);
-                   this._subscriber(this._state);
-                   break;
-        }
+        this._state = checkTextReducer(this._state,action);
+        this._state.profilePage = profileReducer(this._state.profilePage,action);
+        this._state.dialogsPage = dialogReducer(this._state.dialogsPage,action);
+        this._subscriber(this._state);
     }
 
 }
 
-export const addPostActionCreator = ()=> ({type:ADD_POST});
-export const addMessageCreator = ()=> ({type:ADD_MESSAGE});
-export const checkTextActionCreator = (text,entity)=> ({type:CHECK_TEXT,text:text,entity:entity});
+
 
 
 
