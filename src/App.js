@@ -10,6 +10,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ProfileContainer from "./components/profile/ProfileContainer";
+import NavBarContainer from "./components/navbar/navBarContainer";
 
 
 const App = (props)=> {
@@ -17,10 +18,10 @@ const App = (props)=> {
       <BrowserRouter>
     <div className="App">
         <Header />
-        <NavBar state={props.state}/>
+        <NavBarContainer />
         <div className='content'>
-            <Route path='/profile' render={()=> <ProfileContainer state={props.state}/>}/>
-            <Route path='/dialogs' render={()=> <DialogsContainer state={props.state} />}/>
+            <Route path='/profile' render={()=> <ProfileContainer />}/>
+            <Route path='/dialogs' render={()=> <DialogsContainer />}/>
             <Route path='/news' component={News}/>
             <Route path='/music' component={Music}/>
         </div>
