@@ -1,5 +1,6 @@
 const ADD_USER = 'ADD_USER';
 const FOLLOW = 'FOLLOW';
+const SET_USERS = 'SET_USERS';
 
 
 let stateLoc = [{
@@ -56,11 +57,31 @@ const UsersReducer = (state = stateLoc,action)=>{
             let stateCopy = state.map(u => u);
             stateCopy.forEach(item =>{
                 if(item.id===action.userID){
-                   let user = {...item,friends:[...item.friends]};
-                   
-
+                    let index = item.friends.indexOf('1');
+                   if(index+1){
+                        item.friends.splice(index,1);
+                   }else if(!index+1){
+                       item.friends.push('1');
+                   }
                 }
             })
+            return stateCopy;
+        case SET_USERS:
+            let dataCopy = action.arr.map(u => u);
+            let newState = [];
+            dataCopy.forEach(item => {
+                let newUser = {
+                    id:item.id,
+                    name:item.name,
+                    adress:'minsk',
+                    location:{country:'',sity:''},
+                    friends:[Math.random()*20,Math.random()*20,Math.random()*20,Math.random()*20,Math.random()*20],
+                    status:item.status,
+                    avaurl:'https://lh3.googleusercontent.com/proxy/gmhUOTVzzICCfzL3czRXHWht35FTf1dNLtVT0zmexxHBWTLBho5h5lGoPnx8-IHZdEmAGXCFdHxKLYYsMa1sJNM7ygX0NliVPwafMZ5932_DDL6gqNmXqavmNN7o9iC3M6RDZ1vqG-FIdSAWKPNO'
+                }
+                newState.push(newUser);
+            })
+            return newState;
         default:return state;
     }
 
@@ -69,5 +90,6 @@ const UsersReducer = (state = stateLoc,action)=>{
 
 export const addUserAC = ()=>({type:ADD_USER});
 export const followAC = (id)=>({type:FOLLOW,userID:id});
+export const setUsers = (users)=>({type:SET_USERS,arr:users});
 
 export default UsersReducer;

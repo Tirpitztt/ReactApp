@@ -1,30 +1,27 @@
 import Users from './Users';
 import {connect} from "react-redux";
 import User from "./User/User";
-import {addUserAC} from "../../Redux/users-reduce";
+import {addUserAC, followAC, setUsers} from "../../Redux/users-reduce";
+import UsersClas from "./User/UsersClas";
 
 
 let mapStateToProps = (state)=>{
-    let userID = state.navBar.user.id;
-    let usersArr = state.users.map(us => (<User key={us.id + Math.random()} avaurl={us.avaurl} name={us.name} status={us.status}
-    location={us.location} follow={isFollow(us.friends)}/>))
 
-    function isFollow(arr){
-        let flag = false;
-        arr.forEach(item =>{
-            if(item === userID){flag = true;}
-        })
-       return flag;
-    }
     return {
-        state:usersArr
+        state:state
     }
 }
 let mapDispatchToProps = (dispatch)=>{
     return {
         addNewUser:()=>{
             dispatch(addUserAC());
+        },
+        followCh:(id)=>{
+            dispatch(followAC(id))
+        },
+        setUsers:(users)=>{
+            dispatch(setUsers(users))
         }
     }
 }
-export const UsersContainer = connect(mapStateToProps,mapDispatchToProps)(Users)
+export const UsersContainer = connect(mapStateToProps,mapDispatchToProps)(UsersClas)
