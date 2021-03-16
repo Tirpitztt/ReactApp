@@ -11,6 +11,8 @@ import Music from "./components/Music/Music";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ProfileContainer from "./components/profile/ProfileContainer";
 import NavBarContainer from "./components/navbar/navBarContainer";
+import {UsersContainer} from "./components/Users/UsersContainer";
+
 
 
 const App = (props)=> {
@@ -24,6 +26,7 @@ const App = (props)=> {
             <Route path='/dialogs' render={()=> <DialogsContainer />}/>
             <Route path='/news' component={News}/>
             <Route path='/music' component={Music}/>
+            <Route path='/users' render={()=> <UsersContainer />}/>
         </div>
 
         <Footer />

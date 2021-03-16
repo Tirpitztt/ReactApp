@@ -8,6 +8,7 @@ const NavBar = (props)=>{
     let news = '/news';
     let music = '/music';
     let settings = '/settings';
+    let users = '/users';
 
 
     return (
@@ -19,6 +20,7 @@ const NavBar = (props)=>{
             <div className={c.item}><NavLink to={news} activeClassName={c.activeLink}>News</NavLink></div>
             <div  className={c.item}><NavLink to={music} activeClassName={c.activeLink}>Music</NavLink></div>
             <div className={c.item}><NavLink to={settings} activeClassName={c.activeLink}>Settings</NavLink></div>
+            <div className={c.item}><NavLink to={users} activeClassName={c.activeLink}>Users</NavLink></div>
             <Friends  frarr={props.friendsArr}/>
         </nav>
     )
