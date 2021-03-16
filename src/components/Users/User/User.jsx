@@ -1,7 +1,8 @@
 import c from './../Users.module.css';
 
 const User = (props)=>{
-
+    let followButton = 'добавить в друзья';
+    if(props.follow){followButton='удалить из друзей'}
     return(
         <div className={c.wrap_elem}>
             <div className={c.wrap_ava}><img src={props.avaurl} alt=""/></div>
@@ -11,7 +12,7 @@ const User = (props)=>{
                 <div><p>Страна: {props.location.country}</p></div>
                 <div><p>Город: {props.location.city}</p></div>
             </div>
-            <div className={c.wrap_button}></div>
+            <div className={c.btn}>{followButton}</div>
         </div>
     )
 }
