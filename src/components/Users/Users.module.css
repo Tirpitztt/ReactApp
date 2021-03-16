@@ -1,0 +1,25 @@
+.wrap{
+    display: flex;
+    flex-flow: row wrap;
+}
+.wrap_elem{
+    width: 200px;
+    border: 1px solid gray;
+    padding: 10px;
+
+}
+.wrap_ava{
+    width: 80%;
+    max-height: 200px;
+    overflow: hidden;
+    border: 1px solid gray;
+}
+.wrap_ava img{
+    width:100%;
+}
+.wrap_info{
+
+}
+.wrap_button{
+
+}
