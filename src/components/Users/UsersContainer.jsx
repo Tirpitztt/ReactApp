@@ -1,7 +1,7 @@
 import Users from './Users';
 import {connect} from "react-redux";
 import User from "./User/User";
-import {addUserAC, followAC, setUsers} from "../../Redux/users-reduce";
+import {addUserAC, followAC, setCurrentPageAC, setTotalCountAC, setUsers} from "../../Redux/users-reduce";
 import UsersClas from "./User/UsersClas";
 
 
@@ -21,6 +21,12 @@ let mapDispatchToProps = (dispatch)=>{
         },
         setUsers:(users)=>{
             dispatch(setUsers(users))
+        },
+        setTotalCount:(count)=>{
+            dispatch(setTotalCountAC(count));
+        },
+        setCurrentPage:(num)=>{
+            dispatch(setCurrentPageAC(num));
         }
     }
 }

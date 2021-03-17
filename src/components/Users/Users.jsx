@@ -3,12 +3,15 @@ import User from "./User/User";
 
 
 const Users = (props)=>{
+
+
+
     let flw = (id)=>{
         props.followCh(id);
     }
 
     let userID = props.state.navBar.user.id;
-    let usersArr = props.state.users.map(us => (<User key={us.id + Math.random()} avaurl={us.avaurl} name={us.name} status={us.status}
+    let usersArr = props.state.users.users.map(us => (<User key={us.id + Math.random()} avaurl={us.avaurl} name={us.name} status={us.status}
                                                 location={us.location} follow={isFollow(us.friends)} userId={us.id} flw={flw}/>))
 
     function isFollow(arr){
@@ -18,12 +21,18 @@ const Users = (props)=>{
         })
         return flag;
     }
- let addUser = ()=>{
+    let addUser = ()=>{
         props.addNewUser();
     }
-
-
-
+    let countPage = props.state.users.totalCountUsers/props.state.users.pageSize;
+    let paginationArr = [];
+    for(let i = 1;i<=countPage;i++){
+        paginationArr.push(i);
+    }
+    console.log(props.state.users.totalCountUsers);
+    let setCP = (num)=>{
+        props.sCP(num);
+    }
     return(
 
         <div >
@@ -32,6 +41,7 @@ const Users = (props)=>{
             <div className={c.wrap} >
                 {usersArr}
             </div>
+            <div className={c.pagin_wrap}>{paginationArr.map(page => <span className={props.state.users.currentPage===page?c.active:undefined} onClick={()=> {setCP(page)}}>{page}</span>)}</div>
         </div>
     )
 }

@@ -40,3 +40,13 @@
     background-color: darkviolet;
     border-color: darkgrey;
 }
+.pagin_wrap{
+    max-width: 90vw;
+}
+.pagin_wrap>span{
+    margin: 10px 3px;
+    cursor:pointer;
+}
+.active{
+    font-weight: bold;
+}
