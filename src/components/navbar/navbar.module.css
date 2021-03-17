@@ -3,6 +3,8 @@
     background-color: darkviolet;
     margin: 5px;
     padding: 2rem;
+    max-width: 13vw;
+    min-width: 13vw;
 }
 .nav div{
     margin-bottom: 1rem;

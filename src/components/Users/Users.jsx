@@ -24,7 +24,7 @@ const Users = (props)=>{
     let addUser = ()=>{
         props.addNewUser();
     }
-    let countPage = props.state.users.totalCountUsers/props.state.users.pageSize;
+    let countPage = Math.ceil(props.state.users.totalCountUsers/props.state.users.pageSize);
     let paginationArr = [];
     for(let i = 1;i<=countPage;i++){
         paginationArr.push(i);
