@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD_POST';
 const CHECK_TEXT = 'CHECK_TEXT';
+const SET_UESR_PROFILE = 'SET_UESR_PROFILE';
 
 let initialState = {
     posts: [{
@@ -28,7 +29,8 @@ let initialState = {
         post: "I am dolboeb!",
         likes: '100'
     }],
-    checkedText: 'tirpitz'
+    checkedText: 'tirpitz',
+    profile: null
 };
 
 const profileReducer = (state = initialState,action)=>{
@@ -48,11 +50,18 @@ const profileReducer = (state = initialState,action)=>{
                 ...state,
                 checkedText: newText
             }
-
+        case SET_UESR_PROFILE:{
+            return {
+                ...state,
+                profile:action.profile
+            }
+        }
         default : return state;
     }
 
 }
-export const addPostActionCreator = ()=> ({type:ADD_POST});
-export const checkTextActionCreator = (text)=> ({type:CHECK_TEXT,text:text});
+export const addP = ()=> ({type:ADD_POST});
+export const txtCh = (text)=> ({type:CHECK_TEXT,text:text});
+export const setUserProfile = (profile)=>({type:SET_UESR_PROFILE,profile});
+
 export default profileReducer;

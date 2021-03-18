@@ -1,38 +1,38 @@
-import Profile from "./profile";
-import {addPostActionCreator, checkTextActionCreator} from "../../Redux/profile-reduce";
-import PostElement from "./Posts/Post/PostElement/PostElement";
+import React from "react";
+import {addP, setUserProfile, txtCh} from "../../Redux/profile-reduce";
 import {connect} from "react-redux";
+import Profile from "./profile";
+import axios from "axios";
+
+
+class ProfileContainer extends React.Component {
+
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+            .then(response=>{
+                //this.props.setFetching(false);
+                this.props.setUserProfile(response.data);
+                })
+    }
+
+    render() {
+        return (
+            <Profile {...this.props}/>
+        )
+    }
+}
+
+
+
+
+
+
 
 let mapStateToProps = (state)=>{
-    let res = state.profilePage.posts.map(post => <PostElement name={state.navBar.users[post.user-1].name} message={post.post} like={post.likes}
-                                                               avaurl={state.navBar.users[post.user-1].avaurl} key={post.id+Math.random()}/>);
-    function getUserAva(id){
-        state.navBar.users.forEach(function (item){
-            if(item.id===id){
-                return item.avaurl;
-            }
-        })
-    }
-
     return {
-        user:state.navBar.user,
-        postArr:res,
-        cht:state.profilePage.checkedText
+        state
     }
 }
 
-let mapDispatchToProps = (dispatch)=>{
+export default connect(mapStateToProps,{addP,txtCh,setUserProfile}) (ProfileContainer);
 
-    return {
-        addP:()=>{
-            dispatch(addPostActionCreator());
-        },
-        txtCh:(text)=>{
-            dispatch(checkTextActionCreator(text));
-        }
-    }
-}
-
-const ProfileContainer = connect(mapStateToProps,mapDispatchToProps) (Profile);
-
-export default ProfileContainer;

@@ -1,4 +1,5 @@
 import c from './../Users.module.css';
+import {NavLink} from "react-router-dom";
 
 
 const User = (props)=>{
@@ -10,7 +11,9 @@ const User = (props)=>{
     }
     return(
         <div className={c.wrap_elem}>
-            <div className={c.wrap_ava}><img src={props.avaurl} alt=""/></div>
+            <NavLink to={'/profile/' + props.userId}>
+                <div className={c.wrap_ava}><img src={props.avaurl} alt=""/></div>
+            </NavLink>
             <div className={c.wrap_info}>
                 <div><p>Имя: {props.name}</p></div>
                 <div><p>Статус: {props.status}</p></div>
