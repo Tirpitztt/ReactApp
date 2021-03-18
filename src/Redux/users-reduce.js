@@ -47,7 +47,7 @@ let stateLoc = {users:[{
         status:'im mudak',
         avaurl: "https://ae01.alicdn.com/kf/HTB1a0USalv0gK0jSZKbq6zK2FXaT/Cartoon-Devil-Anal-Beads-Butt-Plug-Adults-Sex-Toy-Silicone-Prostate-Massager.jpg_960x960.jpg"
     }],
-                pageSize:100,
+                pageSize:20,
                 totalCountUsers:0,
                 currentPage:1,
                 isFetching:true

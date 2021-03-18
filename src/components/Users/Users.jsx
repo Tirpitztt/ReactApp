@@ -4,8 +4,6 @@ import User from "./User/User";
 
 const Users = (props)=>{
 
-
-
     let flw = (id)=>{
         props.followCh(id);
     }
@@ -26,11 +24,21 @@ const Users = (props)=>{
     }
     let countPage = Math.ceil(props.state.users.totalCountUsers/props.state.users.pageSize);
     let paginationArr = [];
+    let paginationArrRes = [];
     for(let i = 1;i<=countPage;i++){
         paginationArr.push(i);
     }
-    console.log(props.state.users.totalCountUsers);
-    let setCP = (num)=>{
+    for(let i =1;i<=paginationArr.length;i++){
+        if(i===props.state.users.currentPage){
+            if(i<=3){
+                paginationArrRes.push(i,i+1,i+2,i+3,i+4,i+5,i+6);
+            }else if(i>3){
+                paginationArrRes.push(i-3,i-2,i-1,i,i+1,i+2,i+3);
+            }
+            }
+    }
+
+   let setCP = (num)=>{
         props.sCP(num);
     }
     return(
@@ -41,7 +49,7 @@ const Users = (props)=>{
             <div className={c.wrap} >
                 {usersArr}
             </div>
-            <div className={c.pagin_wrap}>{paginationArr.map(page => <span className={props.state.users.currentPage===page?c.active:undefined} onClick={()=> {setCP(page)}}>{page}</span>)}</div>
+            <div className={c.pagin_wrap}>{paginationArrRes.map(page => <span className={props.state.users.currentPage===page?c.active:undefined} onClick={()=> {setCP(page)}}>{page}</span>)}</div>
         </div>
     )
 }
