@@ -89,7 +89,7 @@ const UsersReducer = (state = stateLoc,action)=>{
                     location:{country:'',sity:''},
                     friends:[Math.random()*20,Math.random()*20,Math.random()*20,Math.random()*20,Math.random()*20],
                     status:item.status,
-                    avaurl:'https://lh3.googleusercontent.com/proxy/gmhUOTVzzICCfzL3czRXHWht35FTf1dNLtVT0zmexxHBWTLBho5h5lGoPnx8-IHZdEmAGXCFdHxKLYYsMa1sJNM7ygX0NliVPwafMZ5932_DDL6gqNmXqavmNN7o9iC3M6RDZ1vqG-FIdSAWKPNO'
+                    avaurl:item.photos.small
                 }
                 newState.users.push(newUser);
             })
