@@ -11,4 +11,8 @@
 
   margin: 5px;
 }
-
+.preloader_wrap{
+  position: absolute;
+  top:50vh;
+  right: 50vw;
+}
