@@ -30,7 +30,7 @@ const Users = (props)=>{
     }
     for(let i =1;i<=paginationArr.length;i++){
         if(i===props.state.users.currentPage){
-            if(i<=3){
+            if(i<3){
                 paginationArrRes.push(i,i+1,i+2,i+3,i+4,i+5,i+6);
             }else if(i>3){
                 paginationArrRes.push(i-3,i-2,i-1,i,i+1,i+2,i+3);
