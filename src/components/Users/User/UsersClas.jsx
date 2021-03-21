@@ -2,31 +2,31 @@ import * as React from "react";
 import Users from "../Users";
 import axios from "axios";
 import Preloader from "../../Common/Preloader/Preloader";
+import { getUsers } from "../../../Api/api";
 
 
 class UsersClas extends React.Component{
 
      componentDidMount() {
          this.props.setFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.state.users.currentPage}&count=${this.props.state.users.pageSize}`,
-        {withCredentials:true})
-            .then(response=>{
+        
+            getUsers(this.props.state.users.currentPage,this.props.state.users.pageSize)
+            .then(data=>{
                 this.props.setFetching(false);
-                this.props.setTotalCount(response.data.totalCount);
-                this.props.setUsers(response.data.items);
+                this.props.setTotalCount(data.totalCount);
+                this.props.setUsers(data.items);
 
             })
     }
     pageChange = (page)=>{
         this.props.setCurrentPage(page);
         this.props.setFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.state.users.pageSize}`,{
-            withCredentials:true
-        })
-            .then(response=>{
+        
+            getUsers(page,this.props.state.users.pageSize)
+            .then(data=>{
                 this.props.setFetching(false);
-                this.props.setTotalCount(response.data.totalCount);
-                this.props.setUsers(response.data.items);
+                this.props.setTotalCount(data.totalCount);
+                this.props.setUsers(data.items);
 
             })
     }
