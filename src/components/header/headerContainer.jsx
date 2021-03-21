@@ -27,7 +27,8 @@ let mapStateToProps = (state)=>{
     return {
         auth:state.authentication.isUserAuth,
         login:state.authentication.userName,
-        userId:state.authentication.userId
+        userId:state.authentication.userId,
+        userAva:state.navBar.user.avaurl
     }
 }
 export default connect(mapStateToProps,{setUserData})(HeaderContainer);
