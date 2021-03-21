@@ -3,11 +3,12 @@ import {NavLink} from "react-router-dom";
 
 
 const User = (props)=>{
+    
     let followButton = 'добавить в друзья';
     if(props.follow){followButton='удалить из друзей'}
 
     let changeFollow = ()=>{
-       props.flw(props.userId);
+       props.flw(props.userId,props.follow);
     }
     return(
         <div className={c.wrap_elem}>
@@ -20,7 +21,7 @@ const User = (props)=>{
                 <div><p>Страна: {props.location.country}</p></div>
                 <div><p>Город: {props.location.city}</p></div>
             </div>
-            <div className={c.btn} onClick={changeFollow}>{followButton}</div>
+            {props.isFetch?'???':<div className={c.btn} onClick={changeFollow}>{followButton}</div>}
         </div>
     )
 }

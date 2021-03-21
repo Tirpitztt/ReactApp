@@ -66,11 +66,11 @@ const UsersReducer = (state = stateLoc,action)=>{
             let stateCopy = {...state};
             stateCopy.users.forEach(item =>{
                 if(item.id===action.userID){
-                    let index = item.friends.indexOf('1');
-                   if(index+1){
-                        item.friends.splice(index,1);
-                   }else if(!index+1){
-                       item.friends.push('1');
+                    
+                   if(item.followed){
+                        item.followed = false;
+                   }else if(!item.followed){
+                       item.followed = true;
                    }
                 }
             })
@@ -87,7 +87,7 @@ const UsersReducer = (state = stateLoc,action)=>{
                     name:item.name,
                     adress:'minsk',
                     location:{country:'',sity:''},
-                    friends:[Math.random()*20,Math.random()*20,Math.random()*20,Math.random()*20,Math.random()*20],
+                    followed: item.followed,
                     status:item.status,
                     avaurl:item.photos.small
                 }
@@ -108,7 +108,7 @@ const UsersReducer = (state = stateLoc,action)=>{
 }
 
 export const addNewUser = ()=>({type:ADD_USER});
-export const followCh = (id)=>({type:FOLLOW,userID:id});
+export const setUserFollow = (id)=>({type:FOLLOW,userID:id});
 export const setUsers = (users)=>({type:SET_USERS,arr:users});
 export const setTotalCount = (count)=>({type:SET_TOTAL,totalCount:count});
 export const setCurrentPage = (num)=>({type:SET_CURRENT_PAGE,currentPage:num});

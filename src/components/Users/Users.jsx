@@ -4,21 +4,16 @@ import User from "./User/User";
 
 const Users = (props)=>{
 
-    let flw = (id)=>{
-        props.followCh(id);
+    let flw = (id,flag)=>{
+        props.followChange(id,flag);
     }
 
     let userID = props.state.navBar.user.id;
     let usersArr = props.state.users.users.map(us => (<User key={us.id + Math.random()} avaurl={us.avaurl} name={us.name} status={us.status}
-                                                location={us.location} follow={isFollow(us.friends)} userId={us.id} flw={flw}/>))
+                                                location={us.location} follow={us.followed} userId={us.id} flw={flw} 
+                                                isFetch={props.state.users.isFetch} />))
 
-    function isFollow(arr){
-        let flag = false;
-        arr.forEach(item =>{
-            if(item === userID){flag = true;}
-        })
-        return flag;
-    }
+    
     let addUser = ()=>{
         props.addNewUser();
     }
