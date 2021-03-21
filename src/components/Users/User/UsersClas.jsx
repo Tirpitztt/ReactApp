@@ -30,20 +30,20 @@ class UsersClas extends React.Component{
     }
     followChange = (userId,flag)=>{
         if(!flag){
-            this.props.setFetching(true);
+            this.props.followingProgress(true);
             usersAPI.userFollow(userId).then(data=>{
-                this.props.setFetching(false);
                 if(data.resultCode===0){
                     this.props.setUserFollow(userId);
                 }
+                this.props.followingProgress(false);
             })
         }else {
-            this.props.setFetching(true);
+            this.props.followingProgress(true);
             usersAPI.userUnfollow(userId).then(data=>{
-                this.props.setFetching(false);
                 if(data.resultCode===0){
                     this.props.setUserFollow(userId);
                 }
+                this.props.followingProgress(false);
              })
         }
      }

@@ -4,6 +4,7 @@ const SET_USERS = 'SET_USERS';
 const SET_TOTAL = 'SET_TOTAL';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const IS_FETCH = 'IS_FETCH';
+const FOLLOW_PROGRESS = 'FOLLOW_PROGRESS';
 
 
 let stateLoc = {users:[{
@@ -50,7 +51,8 @@ let stateLoc = {users:[{
                 pageSize:20,
                 totalCountUsers:0,
                 currentPage:1,
-                isFetching:true
+                isFetching:true,
+                followProgress:false
 };
 
 const UsersReducer = (state = stateLoc,action)=>{
@@ -101,6 +103,9 @@ const UsersReducer = (state = stateLoc,action)=>{
             }
         case IS_FETCH:
             return {...state,isFetching: action.isFetch}
+        case FOLLOW_PROGRESS:{
+            return {...state,followProgress: action.fetching}
+        }
         default:return state;
     }
 
@@ -113,5 +118,6 @@ export const setUsers = (users)=>({type:SET_USERS,arr:users});
 export const setTotalCount = (count)=>({type:SET_TOTAL,totalCount:count});
 export const setCurrentPage = (num)=>({type:SET_CURRENT_PAGE,currentPage:num});
 export const setFetching = (param)=>({type:IS_FETCH,isFetch:param});
+export const followingProgress = (fetching)=>({type:FOLLOW_PROGRESS,fetching});
 
 export default UsersReducer;
