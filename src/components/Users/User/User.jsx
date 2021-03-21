@@ -1,5 +1,6 @@
 import c from './../Users.module.css';
 import {NavLink} from "react-router-dom";
+import PreloadButton from "../../Common/Preloader/preloadbutton";
 
 
 const User = (props)=>{
@@ -21,7 +22,7 @@ const User = (props)=>{
                 <div><p>Страна: {props.location.country}</p></div>
                 <div><p>Город: {props.location.city}</p></div>
             </div>
-            {props.isFetch?'???':<div className={c.btn} onClick={changeFollow}>{followButton}</div>}
+            {props.isFetch.some(id=>id===props.userId)?<PreloadButton />:<div className={c.btn} onClick={changeFollow}>{followButton}</div>}
         </div>
     )
 }
