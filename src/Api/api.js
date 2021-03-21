@@ -19,7 +19,17 @@ export const usersAPI = {
     userUnfollow(userId){
         return instanceAx.delete(`follow/${userId}`)
             .then(response => response.data)
+    },
+    getUserProfile(userId){
+        return instanceAx.get(`profile/${userId}`)
+            .then(response => response.data)
     }
 
+}
+
+export const authAPI = {
+    authMe(){
+        return instanceAx.get(`auth/me`).then(response => response.data);
+    }
 }
 
