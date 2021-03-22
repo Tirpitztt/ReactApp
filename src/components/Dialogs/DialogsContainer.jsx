@@ -13,7 +13,8 @@ let mapStateToProps = (state)=>{
     return{
         dialogArr:resDialog,
         messageArr:resMessage,
-        newMessBody:state.dialogsPage.checkedText
+        newMessBody:state.dialogsPage.checkedText,
+        auth:state.authentication.isUserAuth
     }
 }
 let mapDispatchToProps = (dispatch)=>{

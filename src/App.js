@@ -12,6 +12,7 @@ import ProfileContainer from "./components/profile/ProfileContainer";
 import NavBarContainer from "./components/navbar/navBarContainer";
 import {UsersContainer} from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/header/headerContainer";
+import Login from "./components/Login/login";
 
 
 
@@ -27,6 +28,7 @@ const App = (props)=> {
             <Route path='/news' component={News}/>
             <Route path='/music' component={Music}/>
             <Route path='/users' render={()=> <UsersContainer />}/>
+            <Route path='/login' render = {()=> <Login />}/>
         </div>
 
         <Footer />

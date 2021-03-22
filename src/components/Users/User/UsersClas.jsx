@@ -2,6 +2,7 @@ import * as React from "react";
 import Users from "../Users";
 
 import Preloader from "../../Common/Preloader/Preloader";
+import {Redirect} from "react-router-dom";
 
 
 
@@ -21,6 +22,7 @@ class UsersClas extends React.Component{
         }
      }
     render(){
+        if(!this.props.state.auth) return <Redirect to={'/login'} />
         return(
             <>
                 {this.props.state.users.isFetching?<Preloader />:<Users state={this.props.state} addNewUser={this.props.addNewUser} followChange={this.followChange} sCP={this.pageChange} />}

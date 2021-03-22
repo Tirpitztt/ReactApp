@@ -2,6 +2,7 @@ import c from './profile.module.css';
 import MyPost from './Posts/myPost'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import PostElement from "./Posts/Post/PostElement/PostElement";
+import {Redirect} from "react-router-dom";
 const Profile = (props)=>{
 
     let res = props.state.profilePage.posts.map(post => <PostElement name={props.state.navBar.users[post.user-1].name} message={post.post} like={post.likes}
@@ -13,7 +14,7 @@ const Profile = (props)=>{
             }
         })
     }
-
+    if(!props.state.authentication.isUserAuth) return <Redirect to={'/login'} />
     return (
         <div >
             <div className={c.heat}><img src="https://dbijapkm3o6fj.cloudfront.net/resources/20611,1004,1,6,4,0,960,330/-3842-/20161013141806/image-gallery.jpeg" alt=""/></div>
