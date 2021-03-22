@@ -1,3 +1,5 @@
+import {usersAPI} from "../Api/api";
+
 const ADD_USER = 'ADD_USER';
 const FOLLOW = 'FOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -122,5 +124,42 @@ export const setTotalCount = (count)=>({type:SET_TOTAL,totalCount:count});
 export const setCurrentPage = (num)=>({type:SET_CURRENT_PAGE,currentPage:num});
 export const setFetching = (param)=>({type:IS_FETCH,isFetch:param});
 export const followingProgress = (fetching,id)=>({type:FOLLOW_PROGRESS,fetching,id});
+
+export const followThunk =  (userId)=>{
+    return (dispatch)=>{
+        dispatch(followingProgress(true,userId));
+        usersAPI.userFollow(userId).then(data=>{
+            if(data.resultCode===0){
+                dispatch(setUserFollow(userId));
+            }
+            dispatch(followingProgress(false,userId));
+        })
+    }
+}
+export const unfollowThunk =  (userId)=>{
+    return (dispatch)=>{
+        dispatch(followingProgress(true,userId));
+        usersAPI.userUnfollow(userId).then(data=>{
+            if(data.resultCode===0){
+                dispatch(setUserFollow(userId));
+            }
+            dispatch(followingProgress(false,userId));
+        })
+    }
+}
+export const getUsersThunk = (currentPage,pageSize) =>{
+    return (dispatch) =>{
+        dispatch(setCurrentPage(currentPage));
+        dispatch(setFetching(true));
+        usersAPI.getUsers(currentPage,pageSize)
+            .then(data=>{
+                dispatch(setFetching(false));
+                dispatch(setTotalCount(data.totalCount));
+                dispatch(setUsers(data.items));
+
+            })
+    }
+}
+
 
 export default UsersReducer;

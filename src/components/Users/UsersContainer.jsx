@@ -1,7 +1,7 @@
-import Users from './Users';
+
 import {connect} from "react-redux";
-import User from "./User/User";
-import {addNewUser, setUserFollow, setFetching, setCurrentPage, setTotalCount, setUsers,followingProgress} from "../../Redux/users-reduce";
+
+import {addNewUser,setCurrentPage,followThunk,unfollowThunk,getUsersThunk} from "../../Redux/users-reduce";
 import UsersClas from "./User/UsersClas";
 
 
@@ -13,4 +13,5 @@ let mapStateToProps = (state)=>{
 }
 
 export const UsersContainer = connect(mapStateToProps,
-    {addNewUser,setUserFollow,setUsers,setTotalCount,setCurrentPage,setFetching,followingProgress})(UsersClas)
+    {addNewUser,setCurrentPage,
+    followThunk,unfollowThunk,getUsersThunk})(UsersClas)

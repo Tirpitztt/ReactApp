@@ -1,50 +1,23 @@
 import * as React from "react";
 import Users from "../Users";
-import axios from "axios";
+
 import Preloader from "../../Common/Preloader/Preloader";
-import { usersAPI} from "../../../Api/api";
+
 
 
 class UsersClas extends React.Component{
 
      componentDidMount() {
-         this.props.setFetching(true);
-         usersAPI.getUsers(this.props.state.users.currentPage,this.props.state.users.pageSize)
-            .then(data=>{
-                this.props.setFetching(false);
-                this.props.setTotalCount(data.totalCount);
-                this.props.setUsers(data.items);
-
-            })
+         this.props.getUsersThunk(this.props.state.users.currentPage,this.props.state.users.pageSize);
     }
     pageChange = (page)=>{
-        this.props.setCurrentPage(page);
-        this.props.setFetching(true);
-        usersAPI.getUsers(page,this.props.state.users.pageSize)
-            .then(data=>{
-                this.props.setFetching(false);
-                this.props.setTotalCount(data.totalCount);
-                this.props.setUsers(data.items);
-
-            })
+        this.props.getUsersThunk(page,this.props.state.users.pageSize);
     }
     followChange = (userId,flag)=>{
         if(!flag){
-            this.props.followingProgress(true,userId);
-            usersAPI.userFollow(userId).then(data=>{
-                if(data.resultCode===0){
-                    this.props.setUserFollow(userId);
-                }
-                this.props.followingProgress(false,userId);
-            })
+            this.props.followThunk(userId);
         }else {
-            this.props.followingProgress(true,userId);
-            usersAPI.userUnfollow(userId).then(data=>{
-                if(data.resultCode===0){
-                    this.props.setUserFollow(userId);
-                }
-                this.props.followingProgress(false,userId);
-             })
+            this.props.unfollowThunk(userId);
         }
      }
     render(){
