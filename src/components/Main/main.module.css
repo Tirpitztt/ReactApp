@@ -1,0 +1,75 @@
+.wrap{
+    width: inherit;
+    height: 500px;
+    background: url("../../Assets/img/gotBack.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.house_wrap{
+    width: 80%;
+    display: flex;
+    flex-flow: row;
+    margin: auto;
+    justify-content: center;
+}
+.card_wrap{
+    border:1px solid darkgrey;
+    width: 30%;
+    height: 330px;
+    background-color: white;
+    margin: 10px auto;
+}
+.enterwrap{
+    margin: 15px 15px;
+
+}
+.picwrap{
+    height: 150px;
+}
+.picwrap img{
+    width: 100%;
+}
+.textwrapcard{
+    padding: 15px 15px;
+}
+.title_wrap{
+    padding: 3rem 3rem;
+}
+.title{
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+.subtitle{
+    margin-top: .5rem;
+    font-size: 1.2rem;
+}
+.title,.subtitle{
+    color: beige;
+}
+.ann_wrap{
+    width: 40%;
+}
+hr{
+    color: darkgoldenrod;
+    width: 100px;
+}
+.anotation{
+   color: beige;
+    font-family: Arial;
+    font-style: italic;
+}
+.button{
+    width: 100px;
+    border: 2px solid beige;
+    text-align: center;
+}
+.button p{
+    color: beige;
+}
+.uptext{
+    color: darkgoldenrod;
+    font-weight: 700;
+}
+.block2{
+    height: 500px;
+}
