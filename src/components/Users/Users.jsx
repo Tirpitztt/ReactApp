@@ -8,7 +8,7 @@ const Users = (props)=>{
         props.followChange(id,flag);
     }
 
-    let userID = props.state.navBar.user.id;
+
     let usersArr = props.state.users.users.map(us => (<User key={us.id + Math.random()} avaurl={us.avaurl} name={us.name} status={us.status}
                                                 location={us.location} follow={us.followed} userId={us.id} flw={flw} 
                                                 isFetch={props.state.users.followProgress} />))

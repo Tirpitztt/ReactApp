@@ -68,6 +68,7 @@ export const setUserProfile = (profile)=>({type:SET_UESR_PROFILE,profile});
 
 export const getProfileThunk = (userId)=>{
     return (dispatch)=>{
+        dispatch(setUserProfile(null));
         usersAPI.getUserProfile(userId).then(data=>{
             //this.props.setFetching(false);
             dispatch(setUserProfile(data));

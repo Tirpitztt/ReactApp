@@ -1,6 +1,7 @@
 import c from "./ProfileInfo.module.css";
 import User_info from "./Users/user_info";
 import Preloader from "../../Common/Preloader/Preloader";
+import AvatarUser from "../../Common/UserAva/avatarUser";
 
 
 const ProfileInfo = (props)=>{
@@ -9,10 +10,9 @@ const ProfileInfo = (props)=>{
     }
     return(
         <div className={c.user_wrap}>
-            <div className={c.user_ava}><img src={props.state.profilePage.profile.photos.large} alt=""/></div>
+            <AvatarUser state={props.state} />
             <div className={c.user_info}>
-
-                <User_info state={props.state.profilePage.profile}/>
+                    <User_info state={props.state.profilePage.profile}/>
 
             </div></div>
     )
