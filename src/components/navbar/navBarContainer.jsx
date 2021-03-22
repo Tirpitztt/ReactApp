@@ -18,6 +18,7 @@ let mapStateToProps = (state)=>{
         return result;
     }
     return{
+        userId:state.navBar.user.id,
         friendsArr:res
     }
 }

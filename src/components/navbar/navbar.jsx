@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import Friends from "./Friends/Friends";
 
 const NavBar = (props)=>{
-    let profile = '/profile';
+    let profile = '/profile/'+props.userId;
     let dialogs = '/dialogs';
     let news = '/news';
     let music = '/music';

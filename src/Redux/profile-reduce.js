@@ -1,3 +1,5 @@
+import {usersAPI} from "../Api/api";
+
 const ADD_POST = 'ADD_POST';
 const CHECK_TEXT = 'CHECK_TEXT';
 const SET_UESR_PROFILE = 'SET_UESR_PROFILE';
@@ -63,5 +65,14 @@ const profileReducer = (state = initialState,action)=>{
 export const addP = ()=> ({type:ADD_POST});
 export const txtCh = (text)=> ({type:CHECK_TEXT,text:text});
 export const setUserProfile = (profile)=>({type:SET_UESR_PROFILE,profile});
+
+export const getProfileThunk = (userId)=>{
+    return (dispatch)=>{
+        usersAPI.getUserProfile(userId).then(data=>{
+            //this.props.setFetching(false);
+            dispatch(setUserProfile(data));
+        })
+    }
+}
 
 export default profileReducer;

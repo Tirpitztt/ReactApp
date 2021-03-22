@@ -4,7 +4,7 @@
 
 let initialState = {
     user:{
-        id: "1",
+        id: "15798",
         name: "Sergey",
         adress: 'Bobruisk',
         friends: ["2", "3", "4"],
