@@ -1,0 +1,16 @@
+.preloader_wrap{
+    position: absolute;
+    top:50vh;
+    right: 40vw;
+}
+
+.prldbox{
+    width: 150px;
+
+}
+.prldbox img{
+    width: 100%;
+    height: auto;
+    margin: auto;
+
+}

@@ -14,14 +14,16 @@ class Status extends React.Component{
         })
     }
     changeStatus(){
-
+        this.setState({
+            status:'status change'
+        })
     }
     render(){
         return(
             <div>
                 {!this.state.editStatus?
                     <div><p className={c.statusstring} onClick={this.activateEditStatus.bind(this)}>{this.state.status}</p></div>
-                    :<div><input autoFocus={true} onBlur={this.activateEditStatus.bind(this)} type="text" value={this.state.status}/>
+                    :<div><input autoFocus={true} onBlur={this.activateEditStatus.bind(this)} type="text" />
                     <button onClick={this.changeStatus.bind(this)}>save</button></div>
                 }
             </div>

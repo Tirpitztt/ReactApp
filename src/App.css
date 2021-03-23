@@ -11,18 +11,4 @@
 
   margin: 5px;
 }
-.preloader_wrap{
-  position: absolute;
-  top:50vh;
-  right: 50vw;
-}
 
-.prldbox{
-  width: inherit;
-
-}
-.prldbox img{
-  width: 100px;
-  height: auto;
-
-}
