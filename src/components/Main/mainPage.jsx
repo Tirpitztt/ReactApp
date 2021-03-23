@@ -11,7 +11,7 @@ const MainPage = (props)=>{
                 <p className={c.uptext}>The best of the best</p>
                 <h3 className={c.title}>WELCOME TO BEST SOCIAL NETWORK</h3>
                 <p className={c.subtitle}>GoT world</p>
-                <hr color='#B8860B' align='left' noshade/>
+                <hr color='#B8860B' align='left' />
                 <div className={c.ann_wrap}>
                     <p className={c.anotation}>best network in westeros, 1000000 users, billions fotos
                         dragons,wars,blood and death. <br/>

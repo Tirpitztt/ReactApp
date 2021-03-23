@@ -3,7 +3,7 @@ import TextAr from "./TextAr/TextAr";
 import {Redirect} from 'react-router-dom';
 
 const Dialogs = (props)=>{
-    if(!props.auth) return <Redirect to={'/login'} />
+
  return (
         <div className={c.dialogs}>
             <div className={c.dialogs_items}>

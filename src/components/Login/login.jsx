@@ -1,7 +1,7 @@
 
-export const Login = (props)=>{
+const Login = (props)=>{
     return (
-        <></>
+        <>Залогинься блэт</>
     )
 }
 
