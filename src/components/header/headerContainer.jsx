@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import Header from "./header";
 import {getUserData} from "../../Redux/auth-reduce";
 import * as React from "react";
+import {compose} from "redux";
 
 
 class HeaderContainer extends React.Component {
@@ -25,4 +26,5 @@ let mapStateToProps = (state)=>{
         userAva:state.navBar.user.avaurl
     }
 }
-export default connect(mapStateToProps,{getUserData})(HeaderContainer);
+
+export default compose(connect(mapStateToProps,{getUserData}))(HeaderContainer);

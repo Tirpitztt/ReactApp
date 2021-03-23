@@ -5,6 +5,7 @@ import {addMessageCreator, checkTextActionCreator} from "../../Redux/dialogs-red
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../HOC/withAuthRedirect";
 import * as React from "react";
+import {compose} from "redux";
 
 class DialogsContainer extends React.Component{
 
@@ -35,6 +36,10 @@ let mapDispatchToProps = (dispatch)=>{
 
     }
 }
-let redirectComponent = withAuthRedirect(DialogsContainer);
-export default connect(mapStateToProps,mapDispatchToProps)(redirectComponent);
+
+export default compose(
+    connect(mapStateToProps,mapDispatchToProps),
+    withAuthRedirect
+)(DialogsContainer);
+
 

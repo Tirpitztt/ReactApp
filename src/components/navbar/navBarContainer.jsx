@@ -1,25 +1,21 @@
 import {connect} from "react-redux";
 import NavBar from "./navbar";
-import Friend from "./Friends/Friend/Frend";
+import {compose} from "redux";
+import * as React from "react";
+
+
+class NavBarContainer extends React.Component{
+    render(){
+        return(
+            <NavBar />
+        )
+    }
+}
 
 let mapStateToProps = (state)=>{
-    let friendsarr = getFriends(state.navBar.user.id);
 
-    let res = friendsarr.map((f)=> <Friend name={f.name} ava={f.avaurl}/>);
-
-    function getFriends(id){
-        let result=[];
-        state.navBar.users.forEach((item)=>{
-            if(item.friends.includes(id,0)){
-                result.push(item);
-            }
-
-        })
-        return result;
-    }
     return{
-        userId:state.navBar.user.id,
-        friendsArr:res
+        state
     }
 }
 
@@ -29,6 +25,5 @@ let mapDispatchToProps = (dispatch)=>{
     }
 }
 
-const NavBarContainer = connect(mapStateToProps,mapDispatchToProps)(NavBar);
+export default compose(connect(mapStateToProps,mapDispatchToProps))(NavBarContainer);
 
-export default NavBarContainer;
