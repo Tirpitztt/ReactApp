@@ -2,7 +2,9 @@ import c from './profile.module.css';
 import MyPost from './Posts/myPost'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import PostElement from "./Posts/Post/PostElement/PostElement";
-import {Redirect} from "react-router-dom";
+
+
+
 const Profile = (props)=>{
 
     let res = props.state.profilePage.posts.map(post => <PostElement name={props.state.navBar.users[post.user-1].name} message={post.post} like={post.likes}

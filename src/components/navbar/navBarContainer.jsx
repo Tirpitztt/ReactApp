@@ -4,13 +4,14 @@ import {compose} from "redux";
 import * as React from "react";
 
 
-class NavBarContainer extends React.Component{
-    render(){
-        return(
-            <NavBar />
+class NavBarContainer extends React.Component {
+    render() {
+        return (
+            <NavBar {...this.props} />
         )
     }
 }
+
 
 let mapStateToProps = (state)=>{
 
