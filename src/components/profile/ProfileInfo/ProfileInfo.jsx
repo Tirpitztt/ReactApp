@@ -12,7 +12,7 @@ const ProfileInfo = (props)=>{
         <div className={c.user_wrap}>
             <AvatarUser state={props.state} />
             <div className={c.user_info}>
-                    <User_info state={props.state.profilePage}/>
+                    <User_info state={props.state.profilePage} upStatus={props.updateStatus}/>
 
             </div></div>
     )

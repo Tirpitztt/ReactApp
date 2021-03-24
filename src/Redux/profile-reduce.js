@@ -60,6 +60,12 @@ const profileReducer = (state = initialState,action)=>{
                 profile:action.profile
             }
         }
+        case SET_USER_STATUS:{
+            return {
+                ...state,
+                status:action.status.status
+            }
+        }
         default : return state;
     }
 
@@ -83,6 +89,16 @@ export const getStatusThunk = (userId)=>{
     return (dispatch)=>{
         statusAPI.getUserStatus(userId).then(data=>{
             dispatch(setUserStatus(data));
+        })
+    }
+}
+
+export const updateStatusThunk = (status)=>{
+    return (dispatch)=>{
+        statusAPI.updateStatus(status).then(data=>{
+            if(data.resultCode===0){
+                dispatch(setUserStatus(status))
+            }
         })
     }
 }

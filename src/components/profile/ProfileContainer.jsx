@@ -1,5 +1,5 @@
 import React from "react";
-import {addP, getProfileThunk, txtCh,getStatusThunk} from "../../Redux/profile-reduce";
+import {addP, getProfileThunk, txtCh,getStatusThunk,updateStatusThunk} from "../../Redux/profile-reduce";
 import {connect} from "react-redux";
 import Profile from "./profile";
 import {withRouter} from "react-router";
@@ -19,7 +19,7 @@ class ProfileContainer extends React.Component {
 
     render() {
         return (
-            <Profile {...this.props}/>
+            <Profile {...this.props} updateStatus={this.props.updateStatusThunk}/>
         )
     }
 }
@@ -31,7 +31,7 @@ let mapStateToProps = (state)=>{
 }
 
 export default compose(
-    connect(mapStateToProps,{addP,txtCh,getProfileThunk,getStatusThunk}),
+    connect(mapStateToProps,{addP,txtCh,getProfileThunk,getStatusThunk,updateStatusThunk}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer)

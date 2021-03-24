@@ -3,7 +3,7 @@ import Status from "./status";
 const User_info = (props)=>{
     return (
         <div>
-            <Status status={props.state.status}/>
+            <Status status={props.state.status} upStatus={props.upStatus}/>
             <p>{props.state.profile.fullName}</p>
             <p>{props.state.profile.lookingForAJobDescription}</p>
 

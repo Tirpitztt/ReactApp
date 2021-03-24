@@ -29,6 +29,9 @@ export const usersAPI = {
 export const statusAPI = {
     getUserStatus(userId){
         return instanceAx.get(`profile/status/${userId}`).then(response=> response.data);
+    },
+    updateStatus(status){
+        return instanceAx.put(`profile/status`,status).then(response=>response.data);
     }
 }
 
