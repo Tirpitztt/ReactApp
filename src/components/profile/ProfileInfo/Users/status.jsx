@@ -5,7 +5,7 @@ class Status extends React.Component{
 
     state = {
         editStatus:false,
-        status:'status ept'
+        status:this.props.status
     }
 
     activateEditStatus(){
@@ -13,18 +13,20 @@ class Status extends React.Component{
             editStatus:!this.state.editStatus
         })
     }
-    changeStatus(){
+    changeStatus(e){
         this.setState({
-            status:'status change'
+            status:e.currentTarget.value
         })
     }
     render(){
         return(
             <div>
                 {!this.state.editStatus?
-                    <div><p className={c.statusstring} onClick={this.activateEditStatus.bind(this)}>{this.state.status}</p></div>
-                    :<div><input autoFocus={true} onBlur={this.activateEditStatus.bind(this)} type="text" />
-                    <button onClick={this.changeStatus.bind(this)}>save</button></div>
+                    <div><p className={c.statusstring} onClick={this.activateEditStatus.bind(this)}>{this.state.status||'----------'}</p></div>
+                    :<div><input onChange={this.changeStatus.bind(this)}
+                                 autoFocus={true} onBlur={this.activateEditStatus.bind(this)} type="text"
+                                value={this.state.status}/>
+                    <button >save</button></div>
                 }
             </div>
         )

@@ -26,6 +26,11 @@ export const usersAPI = {
     }
 
 }
+export const statusAPI = {
+    getUserStatus(userId){
+        return instanceAx.get(`profile/status/${userId}`).then(response=> response.data);
+    }
+}
 
 export const authAPI = {
     authMe(){

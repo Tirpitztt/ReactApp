@@ -1,8 +1,9 @@
-import {usersAPI} from "../Api/api";
+import {statusAPI, usersAPI} from "../Api/api";
 
 const ADD_POST = 'ADD_POST';
 const CHECK_TEXT = 'CHECK_TEXT';
 const SET_UESR_PROFILE = 'SET_UESR_PROFILE';
+const SET_USER_STATUS = 'SET_USER_STATUS';
 
 let initialState = {
     posts: [{
@@ -32,7 +33,8 @@ let initialState = {
         likes: '100'
     }],
     checkedText: 'tirpitz',
-    profile: null
+    profile: null,
+    status:''
 };
 
 const profileReducer = (state = initialState,action)=>{
@@ -65,6 +67,7 @@ const profileReducer = (state = initialState,action)=>{
 export const addP = ()=> ({type:ADD_POST});
 export const txtCh = (text)=> ({type:CHECK_TEXT,text:text});
 export const setUserProfile = (profile)=>({type:SET_UESR_PROFILE,profile});
+const setUserStatus = (status) => ({type:SET_USER_STATUS,status});
 
 export const getProfileThunk = (userId)=>{
     return (dispatch)=>{
@@ -72,6 +75,14 @@ export const getProfileThunk = (userId)=>{
         usersAPI.getUserProfile(userId).then(data=>{
             //this.props.setFetching(false);
             dispatch(setUserProfile(data));
+        })
+    }
+}
+
+export const getStatusThunk = (userId)=>{
+    return (dispatch)=>{
+        statusAPI.getUserStatus(userId).then(data=>{
+            dispatch(setUserStatus(data));
         })
     }
 }

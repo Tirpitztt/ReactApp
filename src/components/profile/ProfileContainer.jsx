@@ -1,5 +1,5 @@
 import React from "react";
-import {addP, getProfileThunk, txtCh} from "../../Redux/profile-reduce";
+import {addP, getProfileThunk, txtCh,getStatusThunk} from "../../Redux/profile-reduce";
 import {connect} from "react-redux";
 import Profile from "./profile";
 import {withRouter} from "react-router";
@@ -14,6 +14,7 @@ class ProfileContainer extends React.Component {
         let userId = this.props.match.params.userId;
         if(!this.props.match.isExact) userId = this.props.state.navBar.user.id;
         this.props.getProfileThunk(userId);
+        this.props.getStatusThunk(userId);
     }
 
     render() {
@@ -30,7 +31,7 @@ let mapStateToProps = (state)=>{
 }
 
 export default compose(
-    connect(mapStateToProps,{addP,txtCh,getProfileThunk}),
+    connect(mapStateToProps,{addP,txtCh,getProfileThunk,getStatusThunk}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer)

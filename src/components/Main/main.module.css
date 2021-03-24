@@ -26,7 +26,7 @@
 .picwrap{
     height: 150px;
 }
-.picwrap img{
+.picwrap>img{
     width: 100%;
 }
 .textwrapcard{
