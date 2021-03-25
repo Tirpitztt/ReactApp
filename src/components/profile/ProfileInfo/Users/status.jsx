@@ -25,11 +25,11 @@ class Status extends React.Component{
     }
     render(){
         return(
-            <div>
+            <div autoFocus={true} onBlur={this.activateEditStatus.bind(this)}>
                 {!this.state.editStatus?
                     <div><p className={c.statusstring} onClick={this.activateEditStatus.bind(this)}>{this.props.status||'----------'}</p></div>
                     :<div><input onChange={this.changeStatus.bind(this)}
-                                 autoFocus={true}  type="text"
+                                   type="text"
                                 value={this.state.status}/>
                     <button className={c.butt} onClick={this.updateStatus.bind(this)}>save</button></div>
                 }
