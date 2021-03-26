@@ -1,9 +1,9 @@
 import c from './Dialogs.module.css';
-import TextAr from "./TextAr/TextAr";
-import {Redirect} from 'react-router-dom';
+
+import TextAreaForm from "../Common/Forms/textareaForm";
 
 const Dialogs = (props)=>{
-
+ const nameForm = 'MESS_POST'
  return (
         <div className={c.dialogs}>
             <div className={c.dialogs_items}>
@@ -11,7 +11,8 @@ const Dialogs = (props)=>{
             </div>
             <div className={c.messages}>
                 {props.messageArr}
-                <TextAr nmb={props.newMessBody} addMess={props.addMess} checkT={props.checkT} />
+
+                <TextAreaForm nameForm={nameForm} addMess={props.addMess}/>
             </div>
 
         </div>

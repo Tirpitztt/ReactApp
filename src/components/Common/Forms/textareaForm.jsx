@@ -4,7 +4,19 @@ import { Form, Field } from 'react-final-form'
 const TextAreaForm = (props)=>{
     const nameF = props.nameForm;
     const onSubmit = (e)=>{
-        props.addPost(e.USER_POST);
+        switch (nameF){
+           case  "USER_POST":{
+               props.addPost(e.USER_POST);
+               break;
+            }
+            case 'MESS_POST':{
+                console.log(e);
+                props.addMess(e.MESS_POST);
+                break;
+            }
+            default: console.log('this name is invalid')
+        }
+
     }
     const validate = (e)=>{
 

@@ -7,13 +7,9 @@ const MyPost = (props)=>{
 
             <div className={c.posts_wrap}>
                 <div className={c.new_post}>
-
-                <User_post
-                    cht={props.cht} addP={props.addP}
-                    />
+                    <User_post  addP={props.addP} />
                 </div>
                 <Post state={props.postArr}/>
-
             </div>
 
 

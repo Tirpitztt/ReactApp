@@ -44,7 +44,7 @@ let initialState = {
         dialogId: '4',
         text: 'hi, im mudak?'
     }],
-    checkedText:''
+
 };
 
 const dialogReducer = (state = initialState,action)=>{
@@ -52,20 +52,15 @@ const dialogReducer = (state = initialState,action)=>{
         case  ADD_MESSAGE:
              return {
                 ...state,
-                messages:[...state.messages,{id:'6',userId:'1',dialogId:'2',text:state.checkedText}]
+                messages:[...state.messages,{id:'6',userId:'1',dialogId:'2',text:action.text}]
             }
 
-        case CHECK_TEXT:
-            let newText = (action.text.length>20)?'SAMURAI-JS':action.text;
-            return {
-                ...state,
-                checkedText: newText
-            }
+
 
         default : return state;
     }
 
 }
-export const addMessageCreator = ()=> ({type:ADD_MESSAGE});
-export const checkTextActionCreator = (text)=> ({type:CHECK_TEXT,text:text});
+export const addMessageCreator = (text)=> ({type:ADD_MESSAGE,text});
+
 export default dialogReducer;

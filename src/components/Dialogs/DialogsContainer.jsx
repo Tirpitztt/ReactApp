@@ -1,7 +1,7 @@
 import Dialogs from "./Dialogs";
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import {addMessageCreator, checkTextActionCreator} from "../../Redux/dialogs-reduce";
+import {addMessageCreator} from "../../Redux/dialogs-reduce";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../HOC/withAuthRedirect";
 import * as React from "react";
@@ -21,17 +21,14 @@ let mapStateToProps = (state)=>{
     return{
         dialogArr:resDialog,
         messageArr:resMessage,
-        newMessBody:state.dialogsPage.checkedText,
+
         auth:state.authentication.isUserAuth
     }
 }
 let mapDispatchToProps = (dispatch)=>{
     return{
-        addMess:()=>{
-            dispatch(addMessageCreator())
-        },
-        checkT:(text)=>{
-            dispatch(checkTextActionCreator(text))
+        addMess:(text)=>{
+            dispatch(addMessageCreator(text))
         }
 
     }
