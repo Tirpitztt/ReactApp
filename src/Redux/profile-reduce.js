@@ -1,7 +1,7 @@
 import {statusAPI, usersAPI} from "../Api/api";
 
 const ADD_POST = 'ADD_POST';
-const CHECK_TEXT = 'CHECK_TEXT';
+
 const SET_UESR_PROFILE = 'SET_UESR_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
 
@@ -32,7 +32,7 @@ let initialState = {
         post: "I am dolboeb!",
         likes: '100'
     }],
-    checkedText: 'tirpitz',
+
     profile: null,
     status:''
 };
@@ -44,16 +44,11 @@ const profileReducer = (state = initialState,action)=>{
 
             return {
                 ...state,
-                posts:[...state.posts,{id:'6',user:1,post:state.checkedText,likes:'0'}],
-                checkedText: ''
+                posts:[...state.posts,{id:'6',user:1,post:action.text,likes:'0'}],
+
             }
 
-        case CHECK_TEXT:
-            let newText = (action.text.length>10)?'NINJA-JS':action.text;
-            return{
-                ...state,
-                checkedText: newText
-            }
+
         case SET_UESR_PROFILE:{
             return {
                 ...state,
@@ -70,8 +65,8 @@ const profileReducer = (state = initialState,action)=>{
     }
 
 }
-export const addP = ()=> ({type:ADD_POST});
-export const txtCh = (text)=> ({type:CHECK_TEXT,text:text});
+export const addP = (text)=> ({type:ADD_POST,text});
+
 export const setUserProfile = (profile)=>({type:SET_UESR_PROFILE,profile});
 const setUserStatus = (status) => ({type:SET_USER_STATUS,status});
 

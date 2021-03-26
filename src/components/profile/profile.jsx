@@ -24,7 +24,7 @@ const Profile = (props)=>{
             <MyPost
                     cht={props.state.profilePage.checkedText}
                     addP={props.addP}
-                    txtCh={props.txtCh}
+
                     postArr={res}
             />
 
