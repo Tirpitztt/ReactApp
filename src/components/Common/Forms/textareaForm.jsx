@@ -32,9 +32,9 @@ const TextAreaForm = (props)=>{
                         <Field
                             name={nameF}
                             render={({input,meta})=>(
-                                <div>
-                                    <textarea {...input}></textarea>
-                                    <button type='submit'>submit</button>
+                                <div className={c.txtarBox}>
+                                    <textarea className={c.txtar} {...input}></textarea>
+                                    <button className={c.sendbut} type='submit' ></button>
                                 </div>
                             )}
                         />
