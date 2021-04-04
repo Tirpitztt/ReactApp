@@ -4,7 +4,7 @@ import { Form, Field } from 'react-final-form'
 
 const StatusForm = (props)=>{
     const onSubmit = (e)=>{
-
+        props.upStatus(e);
     }
     const validate = (e)=>{
 
@@ -13,7 +13,6 @@ const StatusForm = (props)=>{
     return (
         <div>
             <Form
-
                 onSubmit={onSubmit}
                 validate={validate}
                 render={({handleSubmit})=>(
@@ -24,14 +23,7 @@ const StatusForm = (props)=>{
                 )}
 
             />
-
-
-            <input onChange={this.changeStatus.bind(this)}
-                    type="text"
-                    value={this.state.status}/>
-            <button className={c.butt} onClick={this.updateStatus.bind(this)}>save</button>
-
-        </div>
+      </div>
     )
 }
 
